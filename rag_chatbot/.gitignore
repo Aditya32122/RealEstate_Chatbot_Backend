@@ -1,0 +1,9 @@
+# Django-related
+*.pyc
+__pycache__/
+.env
+*.log
+
+# Virtual Environment
+venv/
+
