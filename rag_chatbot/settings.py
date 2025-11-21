@@ -31,9 +31,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False")
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOWED_ORIGINS = [
-    "https://realestatechatbotai.netlify.app",
-]
+
 
 
 # Application definition
@@ -64,7 +62,7 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    "http://localhost:5173","https://realestatechatbotai.netlify.app",
 ]
 
 # Allow all methods (GET, POST, OPTIONS, etc.)
