@@ -156,3 +156,7 @@ def query_view(request):
         return JsonResponse(result)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+    
+@api_view(["GET"])
+def health_check(request):
+    return JsonResponse({"status": "ok"})
