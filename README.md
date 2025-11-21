@@ -442,32 +442,7 @@ DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
 ```
 
-### Running Tests
-```bash
-# Backend tests
-python manage.py test
 
-# Check embeddings
-python -c "from ragapp.embeddings import generate_embedding; print(len(generate_embedding('test')))"
-# Output: 768
-```
-
-### Debugging Tips
-
-**Check Qdrant Connection:**
-```python
-from ragapp.qdrant_client import client
-print(client.get_collections())
-```
-
-**Test Gemini API:**
-```python
-import google.generativeai as genai
-genai.configure(api_key="your_key")
-model = genai.GenerativeModel('gemini-2.0-flash-exp')
-response = model.generate_content("Hello")
-print(response.text)
-```
 
 ## 📊 Performance Metrics
 
@@ -477,36 +452,7 @@ print(response.text)
 - 🎯 **Search Accuracy**: Semantic similarity > 0.7
 - 📈 **Context Retrieval**: Top 10 relevant records
 
-## 🚀 Deployment
 
-### Docker Deployment
-
-**Dockerfile:**
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-EXPOSE 8000
-
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-```
-
-**Build & Run:**
-```bash
-docker build -t rag-chatbot .
-docker run -p 8000:8000 --env-file .env rag-chatbot
-```
-
-### Cloud Platforms
-
-- ☁️ **Heroku**: Django deployment with PostgreSQL
-- 🌐 **Railway**: Easy Django + Qdrant setup
-- ⚡ **Vercel**: Frontend React deployment
-- 🚀 **Google Cloud Run**: Containerized deployment
 
 ## 🛡️ Security Best Practices
 
